@@ -1,4 +1,4 @@
-version: "3"
+# version: "3"
 services:
   mongo:
     container_name: mongo-mern-docker-boilerplate
@@ -11,6 +11,8 @@ services:
     volumes:
       - ./backend/docker-setup/mongo/db-init.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./backend/docker-setup/mongo/mongo-volume:/data/db
+    env_file:
+      - ./backend/.env.production
     environment:
       - MONGO_INITDB_DATABASE=mern_docker_starter
       - MONGO_INITDB_USER=local_user
