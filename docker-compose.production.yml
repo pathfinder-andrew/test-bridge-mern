@@ -1,7 +1,7 @@
 # version: "3"
 services:
   mongo:
-    container_name: mongo-mern-docker-boilerplate
+    container_name: mongo-bridge-network-mern
     image: mongo
     restart: always
     ports:
@@ -19,7 +19,7 @@ services:
       - MONGO_INITDB_PASSWORD=Password123
 
   backend:
-    container_name: node-mern-docker-boilerplate
+    container_name: node-bridge-network-mern
     build:
       context: ./backend
       dockerfile: docker-setup/node/production/Dockerfile
@@ -40,7 +40,7 @@ services:
       - "5000:4000"
 
   frontend:
-    container_name: react-mern-docker-boilerplate
+    container_name: react-bridge-network-mern
     build:
       context: ./frontend
       dockerfile: docker-setup/react/production/Dockerfile
@@ -58,6 +58,6 @@ services:
 
 networks:
   default:
-    name: backend-network-mern-docker-boilerplate
+    name: backend-bridge-network-mern
   frontend:
-    name: frontend-network-mern-docker-boilerplate
+    name: frontend-bridge-network-mern
